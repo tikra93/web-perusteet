@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä2</title>
+</head>
+<body>
+<h1>Tehtävä 2</h1>
+<script>
+  'use strict';
+
+  //teht 1
+  let kuhanpituus = prompt('Anna kuhan pituus senttimetreinä:');
+  if (kuhanpituus < 37) {
+    let puuttuu = 37 - parseInt(kuhanpituus);
+    document.write('Kuha on alamittainen, laske kuha takaisin järveen. Vaadittavasta pituudesta puuttuu ' + puuttuu +
+        ' senttimetriä.');
+  } else {
+    document.write('Kuha ei ole alamittainen.');
+  }
+
+  document.write('<br><br>');
+
+  //teht 2
+
+  let nimi = prompt('Anna nimesi.');
+  let tupanro = Math.floor((Math.random() * 4) + 1);
+  let tupa = parseInt(tupanro);
+  if (tupa === 1) {
+    document.write(nimi + ', olet Rohkelikko.');
+  }
+  else if (tupa === 2) {
+    document.write(nimi + ', olet Luihuinen.');
+  }
+  else if (tupa === 3) {
+    document.write(nimi + ', olet Puuskupuh.');
+  }
+  else if (tupa === 4)
+    document.write(nimi + ', olet Korpinkynsi.');
+
+  document.write('<br><br>');
+
+  //teht 3
+
+  let sukupuoli = prompt('Anna sukupuolesi, nainen tai mies:');
+  let hgb = prompt('Anna hemoglobiiniarvosi g/l:');
+
+  switch (sukupuoli) {
+    case 'nainen':
+      if (hgb < 117) {
+        document.write('Hemoglobiiniarvosi on alhainen.');
+      }
+      else if (hgb > 175) {
+        document.write('Hemoglobiiniarvosi on korkea.');
+      }
+      else {
+        document.write('Hemoglobiiniarvosi on normaali.');
+      }
+      break;
+    case 'mies':
+      if (hgb < 134) {
+        document.write('Hemoglobiiniarvosi on alhainen.');
+      }
+      else if (hgb > 195) {
+        document.write('Hemoglobiiniarvosi on korkea.');
+      }
+      else {
+        document.write('Hemoglobiiniarvosi on normaali.');
+      }
+      break;
+  }
+
+  document.write('<br><br>');
+
+  //teht 4
+
+  let rahaa = parseFloat(prompt('Paljonko lompakossasi on rahaa?'));
+  let lippu = parseFloat(prompt('Anna bussilipun hinta:'));
+  if (rahaa >= lippu) {
+    rahaa = rahaa - lippu;
+    document.write('Hyvää matkaa! ');
+  }
+  else {
+    document.write('Rahasi eivät riitä bussilippuun. ');
+  }
+
+  document.write('Lompakossasi on rahaa: ' + rahaa + '€.');
+
+  document.write('<br><br>');
+
+  //teht 5
+
+  let lasketaanko = window.confirm('Lasketaanko neliöjuuri?');
+
+  if (lasketaanko == false) {
+    document.write('Neliöjuurta ei lasketa.');
+  }
+  else if (lasketaanko == true) {
+    let arvo = parseFloat(prompt('Anna luku:'));
+    if (arvo < 0) {
+      document.write('Negatiivisen luvun neliöjuuri ei ole määritelty.');
+    }
+    else {
+      let tulos = Math.sqrt(arvo);
+      document.write('Luvun neliöjuuri on: ' + tulos + '.');
+    }
+  }
+
+  document.write('<br><br>');
+
+  //teht 6
+
+  let vuosiluku = parseInt(prompt('Anna vuosiluku: '));
+  if (vuosiluku % 4 == 0) {
+    if (vuosiluku % 100 == 0) {
+      if (vuosiluku % 400 == 0) {
+        document.write('Vuosi on karkausvuosi.');
+      }
+      else {
+        document.write('Vuosi ei ole karkausvuosi.');
+      }
+    }
+    else {
+      document.write('Vuosi on karkausvuosi.');
+    }
+  }
+  else {
+    document.write('Vuosi ei ole karkausvuosi.');
+  }
+
+  document.write('<br><br>');
+
+
+</script>
+</body>
+</html>

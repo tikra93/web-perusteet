@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä3</title>
+</head>
+<body>
+<script>
+  'use strict';
+
+    //teht 1
+    let kokluku = parseInt(prompt('Anna kokonaisluku:'));
+      let kertoma = 1;
+    while (kokluku > 0) {
+      kertoma = kertoma * kokluku;
+      kokluku = kokluku - 1;
+    }
+    document.write('Luvun kertoma on ' + kertoma + '. ');
+
+
+    //teht 2
+
+    let luku = prompt('Anna luku:');
+
+    while (luku <0) {
+      luku = prompt('Luku on negatiivinen, anna luku uudelleen:');
+    }
+    let njuuri = Math.sqrt(luku);
+    document.write('<p>Luvun neliöjuuri on ' + njuuri + '.</p>');
+
+    document.write('<br><br>');
+
+
+      //teht 3
+
+      let avuosi = prompt('Anna vuosi:');
+      let lvuosi = prompt('Anna myöhäisempi vuosi:');
+      let karkausvuosi;
+
+      document.write('<p>Antamasi aikavälin karkausvuodet:</p>');
+
+  document.write('<ul>');
+      while (avuosi<=lvuosi) {
+        if (avuosi % 4 == 0) {
+          if (avuosi % 100 == 0) {
+            if (avuosi % 400 == 0) {
+              karkausvuosi = true;
+            }
+            else {
+              karkausvuosi = false;
+            }
+          }
+          else {
+            karkausvuosi = true;
+          }
+        }
+        else {
+          karkausvuosi = false;
+        }
+
+        if (karkausvuosi == true) {
+          document.write('<ul><li>' + avuosi + '</li> </ul>');
+        }
+
+        avuosi++;
+      }
+
+  document.write('</ul>');
+      document.write('<br><br>');
+
+
+      //teht 4
+
+      let noppia = prompt('Anna arpakuutioiden lukumäärä:');
+      let summa = 0;
+
+      while (noppia >0) {
+        let arpa = Math.floor((Math.random() * 6) + 1);
+        summa = parseInt(summa + arpa);
+        noppia --;
+      }
+
+      document.write('<p>Arpakuutioiden silmälukujen summa: ' + summa + '.</p>');
+
+
+      document.write('<br><br>');
+
+
+
+      //teht 5
+
+  let kluku = parseInt(prompt('Anna kokonaisluku:'));
+  let jluku = 2;
+  let nelio = Math.sqrt(kluku);
+  let alkuluku = true;
+
+    while (jluku <= nelio ) {
+      if (kluku%jluku == 0) {
+        alkuluku = false;
+      }
+
+      jluku ++;
+    }
+    if (alkuluku == false) {
+      document.write('<p>Luku ' + kluku + ' ei ole alkuluku.</p>');
+    } else if (alkuluku == true) {
+      document.write('<p>Luku ' + kluku + ' on alkuluku.</p>');
+    }
+
+
+
+      document.write('<br><br>');
+
+
+  //teht 6
+
+  let nopat = +prompt('Anna arpakuutioiden lukumäärä:');
+  let toivesumma = +prompt('Anna toivomasi silmälukujen summa:');
+
+  let heitot = 0;
+  let osuus = 0;
+
+  while (heitot < 10000) {
+    let summa1 = 0;
+    for (let i = 0; i < nopat; i++) {
+      let kuutio = Math.floor((Math.random() * 6) + 1);
+      summa1 += kuutio;
+      console.log('summa: ' + summa1);
+    }
+
+    console.log('summa: ' + summa1 + ', toivesumma: ' + toivesumma);
+    if (summa1 === toivesumma) {
+      osuus++;
+      console.log('toimiiko');
+    }
+
+    heitot++;
+  }
+  console.log('täällä');
+  let todnak = parseFloat(osuus / 10000 * 100).toFixed(2);
+  document.write('<p>Toivomasi silmälukujen summan todennäköisyys on ' + todnak + ' %.</p>');
+
+  document.write('<br><br>');
+
+
+        //teht 7
+
+      let bingo;
+      let n = 1;
+      let random;
+      let rando;
+    document.write('<p>Bingolapun numerot ovat:</p>');
+
+      while (n <= 25) {
+        random = Math.floor((Math.random() * 4) + 1);
+        rando = parseInt(random);
+        if (rando === 1) {
+          bingo = 4*n-3;
+        }
+        else if (rando === 2 ) {
+          bingo = 4*n-2;
+        }
+        else if (rando === 3) {
+          bingo = 4*n-1;
+        }
+        else if (rando === 4) {
+          bingo = 4*n;
+        }
+        document.write('<p> ' + bingo + '</p>');
+
+        n++;
+      }
+
+
+
+</script>
+</body>
+</html>

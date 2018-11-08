@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä6</title>
+</head>
+<body>
+<script>
+  'use strict';
+
+  //teht 1
+
+
+  function muunnos() {
+    let gallonat = prompt('T1: Anna bensamäärä gallonissa:');
+    let litrat = parseFloat(gallonat / 3.785).toFixed(2);
+    document.write('Antamasi bensamäärä litroissa: ' + litrat + ' litraa.');
+    return litrat;
+
+  }
+  muunnos();
+
+
+
+  document.write('<br><br>');
+
+
+  //teht 2
+
+  function muunnos1(gallonat) {
+
+    let litrat = parseFloat(gallonat / 3.785).toFixed(2);
+
+    return litrat;
+
+  }
+  let gallonat, lopputulos;
+  gallonat = prompt('T2: Anna bensamäärä gallonissa:');                 //ei tarvitse olla sama kuin funktion sisällä, mutta kuvaa parhaiten
+  lopputulos = muunnos1(gallonat);
+  document.write('Antamasi bensamäärä litroissa: ' + lopputulos + ' litraa.');
+
+  document.write('<br><br>');
+
+
+
+  //teht 3
+
+  function itseisarvo(luku) {
+    let itseis;
+
+    if (luku < 0) {
+      itseis = (-1)*(luku);
+    }
+    else {
+      itseis = luku;
+    }
+    return itseis;
+
+  }
+  let aluku, iarvo;
+  aluku = prompt('T3: Anna kokonaisluku:');
+  iarvo = itseisarvo(aluku);
+  document.write('Antamasi luvun itseisarvo on: ' + iarvo + '.');
+
+  document.write('<br><br>');
+
+
+  //teht 4
+
+  function suurinluku(luku1, luku2, luku3) {
+    let suurin;
+
+    if (luku1 >= luku2 && luku1 >= luku3) {
+      suurin = luku1;
+    }
+    else if (luku2 >= luku1 && luku2 >= luku3) {
+      suurin = luku2;
+    }
+    else if (luku3 >= luku1 && luku3 >= luku2) {
+      suurin = luku3;
+    }
+    return suurin;
+
+  }
+  let luku1, luku2, luku3, isoin;
+  luku1 = parseInt(prompt('T4: Anna kokonaisluku:'));
+  luku2 = parseInt(prompt('Anna 2. kokonaisluku:'));
+  luku3 = parseInt(prompt('Anna 3. kokonaisluku:'));
+  isoin = suurinluku(luku1, luku2, luku3);
+  document.write('Antamistasi luvuista suurin on: ' + isoin + '.');
+
+
+
+  document.write('<br><br>');
+
+
+//teht 5
+
+  function liita(taulukko) {
+    let merkit = '';
+    for (let i = 0; i<taulukko.length; i++) {
+        merkit += taulukko[i];
+    }
+    console.log(merkit);
+    return merkit;
+
+  }
+  let merkkijono = ["Viivi", "Marjatta", "Jussi-Pekka"];
+  liita(merkkijono);
+
+
+
+  document.write('<br><br>');
+
+
+    //teht 6
+
+
+  function vastaluvuksi(taulukko) {
+    for (let i = 0; i<taulukko.length; i++) {
+      taulukko[i] *= (-1);
+    }
+    console.log(taulukko);
+    return;
+
+  }
+  let luvut = [3, 4, -2, 0, -7, 12, -20];
+  vastaluvuksi(luvut);
+
+
+    document.write('<br><br>');
+
+
+      //teht 7
+
+  function parilliset(taulukko) {
+    let n = 0;
+    let parillinen = [];
+    for (let i = 0; i<taulukko.length; i++) {
+      if (taulukko[i]%2 == 0) {
+        parillinen [n] = taulukko [i];
+        n++;
+      }
+
+    }
+    console.log(parillinen);
+    return;
+
+  }
+  let luvut2 = [0, 2, 3, 5, 9, 6];
+  parilliset(luvut2);
+
+
+  //teht 8
+
+  function lukujono(luku) {
+    if (luku<=2)                //ymmärtääkseni ensimmäinen alkio tässä tapauksessa on 1. eikä 0. kuten taulukoissa, joten myös arvo 2 palauttaa luvun 1
+      return 1;
+    else {
+      return lukujono(luku - 1) + lukujono (luku - 2);
+    }
+
+  }
+  let mones = prompt('T8: Monennen Fibonaccin lukujonon alkion haluat?')
+  document.write('Valitsemasi alkion luku on ' + lukujono(mones) + '.' );
+
+
+  document.write('<br><br>');
+
+
+  //teht 9
+
+
+  const flukujono = (luku1) => {
+    if (luku1<=2)
+      return 1;
+    else {
+      return flukujono(luku1 - 1) + flukujono (luku1 - 2);
+    }
+
+  };
+  let monesko = prompt('Monennen Fibonaccin lukujonon alkion haluat?');
+  document.write('Valitsemasi alkion luku on ' + flukujono(monesko) + '.' );
+
+
+  document.write('<br><br>');
+
+</script>
+</body>
+</html>

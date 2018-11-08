@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä4</title>
+</head>
+<body>
+<script>
+  'use strict';
+
+  //teht 1
+
+  let luvut = [];
+  let i;
+  for (i=0, i<5, i++) {
+    luvut = prompt('Anna luku:');
+  }
+
+  while (luku <0) {
+    luku = prompt('Luku on negatiivinen, anna luku uudelleen:');
+  }
+  let njuuri = Math.sqrt(luku);
+  document.write('<p>Luvun neliöjuuri on ' + njuuri + '.</p>');
+
+  document.write('<br><br>');
+
+/*
+  //teht 2
+
+  let luku = prompt('Anna luku:');
+
+  while (luku <0) {
+    luku = prompt('Luku on negatiivinen, anna luku uudelleen:');
+  }
+  let njuuri = Math.sqrt(luku);
+  document.write('<p>Luvun neliöjuuri on ' + njuuri + '.</p>');
+
+  document.write('<br><br>');
+
+
+  //teht 3
+
+
+  document.write('<br><br>');
+
+
+  //teht 4
+
+
+
+
+  document.write('<br><br>');
+
+
+
+  //teht 5
+
+
+
+
+
+  document.write('<br><br>');
+
+
+  //teht 6
+
+  let nopat = +prompt('Anna arpakuutioiden lukumäärä:');
+  let toivesumma = +prompt('Anna toivomasi silmälukujen summa:');
+
+  let heitot = 0;
+  let osuus = 0;
+
+  while (heitot < 10000) {
+    let summa1 = 0;
+    for (let i = 0; i < nopat; i++) {
+      let kuutio = Math.floor((Math.random() * 6) + 1);
+      summa1 += kuutio;
+      console.log('summa: ' + summa1);
+    }
+
+    console.log('summa: ' + summa1 + ', toivesumma: ' + toivesumma);
+    if (summa1 === toivesumma) {
+      osuus++;
+      console.log('toimiiko');
+    }
+
+    heitot++;
+  }
+  console.log('täällä');
+  let todnak = parseFloat(osuus / 10000 * 100).toFixed(2);
+  document.write('<p>Toivomasi silmälukujen summan todennäköisyys on ' + todnak + ' %.</p>');
+
+  document.write('<br><br>');
+
+
+  //teht 7
+
+  let bingo;
+  let n = 1;
+  let random;
+  let rando;
+  document.write('<p>Bingolapun numerot ovat:</p>');
+
+  while (n <= 25) {
+    random = Math.floor((Math.random() * 4) + 1);
+    rando = parseInt(random);
+    if (rando === 1) {
+      bingo = 4*n-3;
+    }
+    else if (rando === 2 ) {
+      bingo = 4*n-2;
+    }
+    else if (rando === 3) {
+      bingo = 4*n-1;
+    }
+    else if (rando === 4) {
+      bingo = 4*n;
+    }
+    document.write('<p> ' + bingo + '</p>');
+
+    n++;
+  }
+*/
+
+
+</script>
+</body>
+</html>

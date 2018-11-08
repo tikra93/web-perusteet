@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä1</title>
+</head>
+<body>
+<h1>Tehtävä 1</h1>
+<script>
+  'use strict';
+
+  //teht 1
+  document.write('<p>Tämä on JavaScript-ohjelma! </p>');
+
+
+  //teht 2
+  let nimi;
+  nimi = prompt('Anna nimesi.');
+  document.write('Terve, ' + nimi + '!');
+
+  document.write('<br><br>');
+
+
+  //teht 3
+  let sade;
+  sade = prompt('Anna ympyrän säde:');
+  let pintaAla = Math.PI * (sade * sade);
+  document.write('Ympyrän pinta-ala on ' + pintaAla + '. ');
+
+  document.write('<br><br>');
+
+
+  //teht 4
+
+  let kanta = prompt('Anna suorakulmion kanta:');
+  let korkeus = prompt('Anna suorakulmion korkeus:');
+  let piiri = 2*kanta + 2* korkeus;
+  let suorpinta = kanta * korkeus;
+  document.write('Suorakulmion piiri on ' + piiri + ' ja pinta-ala on ' + suorpinta + '. ');
+
+  document.write('<br><br>');
+
+
+  //teht 5
+
+  let kok1 = prompt('Anna kokonaisluku:');
+  let kok2 = prompt('Anna toinen kokonaisluku:');
+  let kok3 = prompt('Anna kolmas kokonaisluku:');
+  let summa = parseInt(kok1)+parseInt(kok2)+parseInt(kok3);
+  let tulo = kok1 * kok2 * kok3;
+  let keskiarvo = summa / 2;
+
+  document.write('Lukujen summa on ' + summa + ', tulo on ' + tulo + ' ja keskiarvo on ' + keskiarvo +'. ');
+
+  document.write('<br><br>');
+
+
+  //teht 6
+
+  let leiviska = parseInt(prompt('Anna leiviskät:'));
+  let naula = parseInt(prompt('Anna naulat:'));
+  let luoti = parseFloat(prompt('Anna luodit:'));
+  let naulat = leiviska * 20 + naula;
+  let luodit = naulat * 32 + luoti;
+  let grammat = luodit * 13.3;
+  let kilot = Math.floor(grammat/1000);
+  let grammaa = parseFloat(grammat - kilot*1000).toFixed(2);
+
+  document.write('Massa nykymittojen mukaan: ' + kilot + ' kilogrammaa ja ' + grammaa + ' grammaa. ');
+
+  document.write('<br><br>');
+
+
+  //teht 7
+
+  let saldo = prompt('Anna tilin saldo:');
+  let korko = prompt('Anna vuotuinen korkoprosentti:');
+  let vuosikorko = parseFloat(saldo*(korko/100)).toFixed(2);
+  let uusisaldo = (parseFloat(saldo) + parseFloat(vuosikorko)).toFixed(2);
+  document.write('Vuodessa kertyvän koron määrä on ' + vuosikorko + ' € ja tilin saldo vuoden päästä on ' + uusisaldo + ' €. ');
+
+  document.write('<br><br>');
+
+
+  //teht 8
+
+  let noppa1 = Math.floor((Math.random() * 6) + 1);
+  let noppa2 = Math.floor((Math.random() * 6) + 1);
+  let eteneminen = parseInt(noppa1) + parseInt(noppa2);
+  document.write('Arvotut nopan silmäluvut: ' + noppa1 + ' ja ' + noppa2 + '.');
+  document.write('<br><br>');
+  document.write('Etene silmälukujen summan verran: ' + eteneminen + ' askelta.');
+
+  document.write('<br><br>');
+
+
+  //teht 9
+
+  let koodi11 = Math.floor((Math.random() * 9) + 0);
+  let koodi12 = Math.floor((Math.random() * 9) + 0);
+  let koodi13 = Math.floor((Math.random() * 9) + 0);
+
+  let koodi21 = Math.floor((Math.random() * 6) + 1);
+  let koodi22 = Math.floor((Math.random() * 6) + 1);
+
+  document.write('Arvotut koodit ovat: ' + koodi11 + koodi12 + koodi13 + ' ja ' + koodi21 + koodi22 + '.');
+
+
+
+</script>
+</body>
+</html>
