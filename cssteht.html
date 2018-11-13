@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS&JS-harjoitus</title>
+</head>
+<body>
+<ul class="fruits">
+    <li>Apple</li>
+    <li>Banana</li>
+    <li data-foodtype="squishy">Orange</li>
+    <li>Pear</li>
+    <li>Kiwi</li>
+    <li id="berry">Strawberry</li>
+</ul>
+
+<script>
+    'use strict';
+
+    // 1.
+    //const childstraw = document.querySelector("#berry").innerHTML;
+    const straw = document.getElementById("berry").innerHTML;
+    //console.log('' + childstraw + '');
+    console.log('I found the berry: ' + straw + '');
+    document.getElementById("berry").style.backgroundColor = "red";
+
+    // 2.
+    const orang = document.querySelector("[data-foodtype='squishy']").innerHTML;
+    console.log('I found the fruit: ' + orang + '');
+    document.querySelector("[data-foodtype='squishy']").style.backgroundColor = "orange";
+
+
+
+    // 3.1
+
+    const berrycoll = document.getElementsByTagName('li');
+    console.log(''+ berrycoll +'');
+
+
+    // 3.2
+
+    console.log('Using the for loop here:');
+    for (let i=0; i < berrycoll.length; i++) {
+      console.log('' + berrycoll[i].innerHTML + '');
+      berrycoll[i].style.width = "100px";
+      berrycoll[i].style.listStyleType = "none";
+      berrycoll[3].style.backgroundColor = "green";
+
+    }
+
+
+    // 4.1
+
+    const nodel = document.querySelectorAll("li");
+    console.log(''+ nodel +'');
+
+    // 4.2
+
+    nodel.forEach((item) => {
+      item.style.borderStyle = "solid";
+      item.style.borderWidth = "1px";
+    });
+
+
+
+
+
+
+</script>
+</body>
+</html>
