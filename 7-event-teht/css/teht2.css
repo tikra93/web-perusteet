@@ -1,0 +1,11 @@
+p {
+    display: none;
+}
+
+.seen {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
