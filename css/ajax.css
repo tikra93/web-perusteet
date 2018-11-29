@@ -1,0 +1,58 @@
+* {box-sizing:border-box}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#tulokset {
+    float: left;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#hakunappi {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: rgb(200,90,120);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px rgb(29,29,29);
+}
+
+#hakuteksti {
+    width: 250px;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+}
+
+
+
+h3 {
+    font-family: Calibri, sans-serif;
+}
+
+p {
+    font-family: Calibri, sans-serif;
+    text-align: justify;
+    padding-right: 20px;
+    max-width: 1300px;
+}
+
+img {
+    margin: 10px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+
+}

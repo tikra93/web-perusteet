@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>HTML SIVU</h1>
+<form action="/upload" method="post" enctype="multipart/form-data" id="lomake">
+    <input type="file" name="kuva" accept="audio/*,video/*,image/*">                    <!-- type tärkeä asia, nimi hyvin tärkeä -->
+    <button type="submit">Lähetä</button>
+</form>
+<img id = "kuva">
+
+<script src = "js/main.js"></script>
+<script src = "js/index.js"></script>
+<script src = "js/resize.js"></script>
+<script src = "js/exif.js"></script>
+<script src = "js/database.js"></script>
+</html>

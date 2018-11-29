@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>8-AJAX</title>
+    <link rel="stylesheet" href="css/ajax.css">
+
+</head>
+<body>
+<div class="container">
+    <h3>Etsi haluamasi TV-sarjan tiedot kätevästi sivuillamme!</h3>
+    <p>Kirjoita alla olevaan hakukenttään haluamasi sarjan nimi, ja haemme sinulle etsimäsi tiedot.</p>
+    <input id="hakuteksti" type="text">
+    <button id="hakunappi">Hae</button>
+
+    <div class="row">
+        <br>
+        <div class="col"><img></div>            <!-- voidaan käyttää silloin, kun haetaan yksittäistä sarjaa, muuten tehdään uusi <img>-attribuutti-->
+        <div class="col" id="tulokset"></div>
+
+    </div>
+
+</div>
+
+
+<script>
+  'use strict';
+
+  let hakutoiminto;
+  let haettava;
+  let nimi, kotisivu, kuva, yhteenveto;
+  let genret = [];
+  let i;
+
+
+
+  hakutoiminto = document.getElementById('hakunappi');
+
+
+  //hakutoiminto alkaa, kun 'hakunappia' painaetaan
+
+  hakutoiminto.addEventListener('click', function() {
+
+    haettava = document.getElementById('hakuteksti').value;
+
+
+    //kaikkien tulosten haku **************************************************************************************************
+
+    fetch('http://api.tvmaze.com/search/shows?q=' + haettava + '')             // Käynnistetään haku. Vakiometodi on GET.
+      .then(function(vastaus){        // Sitten kun haku on valmis,
+        return vastaus.json();        // muutetaan ladattu tekstimuotoinen JSON JavaScript-olioksi
+      }).then(function(json){         // Sitten otetaan ladattu data vastaan ja
+    haeTulos(json);              // kutsutaan haeTulos-funktiota ja lähetetään ladattu data siihen parametrinä.
+  }).catch(function(error){       // Jos tapahtuu virhe,
+    console.log(error);           // kirjoitetaan virhe konsoliin.
+  });
+
+
+    //yksittäisen sarjan haku**** *********************************************************************************************
+    //*************************************************************************************************************************
+
+    /*
+    fetch('http://api.tvmaze.com/singlesearch/shows?q=' + haettava + '')             // Käynnistetään haku. Vakiometodi on GET.
+        .then(function(vastaus) {
+          return vastaus.json();
+        }).then(function(json) {
+      haeTulos(json);
+    }).catch(function(error) {
+      console.log(error);
+    });*/
+  });
+
+  function haeTulos(tulos) {
+
+
+    // haun tulostus konsoliin ************************************************************************************************
+    console.log(tulos);
+
+    const tulokset = document.querySelector('#tulokset');
+
+
+    // kaikkien hakutulosten tulokset *******************************************************************************************
+
+    for (i=0; 1<=tulos.length; i++) {
+      nimi = tulos[i].show.name;
+      kotisivu = tulos[i].show.officialSite;
+      kuva = tulos[i].show.image.medium;
+      yhteenveto = tulos[i].show.summary;
+
+      // genret ovat array-muodossa
+      genret = tulos[i].show.genres;
+
+      try {
+        if(tulos[i].show.image !== null) {
+          //const tulostuspaikka = document.querySelector('col');
+          const tulostuskuva = document.createElement('img');
+          tulostuskuva.src = tulos[i].show.image.medium;
+          tulokset.appendChild(tulostuskuva);
+        } else {
+          tulostuskuva.alt = nimi;
+        }
+      } catch(error) {
+        console.error(error);
+      }
+    //
+
+
+      tulokset.innerHTML += ('<p>Nimi: ' + nimi + '<br> Kotisivu: ' + kotisivu + '<br>Genret: ' + genret + ' <br><br>Esittely: ' + yhteenveto +  '<br></p>');
+    }
+
+    /*
+    // yksittäisen sarjan / listan ensimmäisen alkion tulokset ****************************************************************
+    //*************************************************************************************************************************
+
+    // vaadittavat tiedot: Nimi, linkki kotisivulle, medium-kuva sekä yhteenveto (summary)
+    nimi = tulos[0].show.name;
+    kotisivu = tulos[0].show.officialSite;
+    kuva = tulos[0].show.image.medium;
+    yhteenveto = tulos[0].show.summary;
+
+
+    try {
+      const tulostuskuva = document.querySelector('img');
+      console.log('kuva', tulostuskuva);
+      if(tulos[0].show.image !== null)
+        tulostuskuva.src = tulos[0].show.image.medium;
+      tulostuskuva.alt = nimi;
+    } catch(error) {
+      console.error(error);
+    }
+
+    tulokset.innerHTML += ('<p>Nimi: ' + nimi + '<br> Kotisivu: ' + kotisivu + '<br>Genret: ' + genret + ' <br><br>Esittely: ' + yhteenveto +  '</p>');
+*/
+
+
+
+
+
+  }
+
+
+
+</script>
+<!--<script src="js/ajax.js"></script> -->
+</body>
+</html>
